@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking Form</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Hotel Booking</h1>
+        <form action="extra_3.html" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="checkin">Check-in Date:</label>
+                <input type="date" id="checkin" name="checkin" required>
+            </div>
+
+            <div class="form-group">
+                <label for="checkout">Check-out Date:</label>
+                <input type="date" id="checkout" name="checkout" required>
+            </div>
+
+            <div class="form-group">
+                <label>Room Type:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="room_type" value="standard" required> Standard</label>
+                    <label><input type="radio" name="room_type" value="premium"> Premium</label>
+                    <label><input type="radio" name="room_type" value="suite"> Suite</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Additional Services:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="services" value="breakfast"> Breakfast</label>
+                    <label><input type="checkbox" name="services" value="wifi"> WiFi</label>
+                    <label><input type="checkbox" name="services" value="parking"> Parking</label>
+                </div>
+            </div>
+
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</body>
+</html>

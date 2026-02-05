@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Habits Form</title>
+</head>
+<body>
+    <h1>Reading Habits Survey</h1>
+    
+    <form action="extra_4.html" method="POST">
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        <br><br>
+        
+
+        <label>How often do you read books?</label>
+        <br>
+        
+        <label>
+            <input type="radio" name="reading_frequency" value="daily" required>
+            Daily
+        </label>
+        <br>
+        
+        <label>
+            <input type="radio" name="reading_frequency" value="weekly">
+            Weekly
+        </label>
+        <br>
+        
+        <label>
+            <input type="radio" name="reading_frequency" value="rarely">
+            Almost Never
+        </label>
+        <br>
+        
+        <label for="recommendation">Recommend your favorite book:</label>
+        <br>
+        <textarea id="recommendation" name="recommendation" rows="5" cols="40" required></textarea>
+        <br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
