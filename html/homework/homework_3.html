@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Form</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Voting Form</h1>
+        <form action="https://www.google.com" method="GET">
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="id">ID Number</label>
+                <input type="text" id="id" name="id" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="candidates-section">
+                <label>Select a Candidate</label>
+                <div class="candidate-option">
+                    <input type="radio" id="candidate1" name="candidate" value="Candidate #1" required>
+                    <label for="candidate1">Candidate #1</label>
+                </div>
+                <div class="candidate-option">
+                    <input type="radio" id="candidate2" name="candidate" value="Candidate #2">
+                    <label for="candidate2">Candidate #2</label>
+                </div>
+                <div class="candidate-option">
+                    <input type="radio" id="candidate3" name="candidate" value="Candidate #3">
+                    <label for="candidate3">Candidate #3</label>
+                </div>
+            </div>
+
+            <button type="submit">Confirm Selection</button>
+        </form>
+    </div>
+</body>
+</html>
