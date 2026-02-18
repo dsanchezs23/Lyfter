@@ -10,11 +10,10 @@ body {
     color: var(--zap-dark);
     line-height: 1.6;
     margin: 0;
-    padding-top: 80px; /* Space for the fixed navbar */
+    padding-top: 80px;
     background-color: #ffffff;
 }
 
-/* Navbar */
 .navbar {
     padding: 15px 5%;
     border-bottom: 1px solid var(--border);
@@ -27,7 +26,6 @@ body {
     z-index: 1000;
 }
 
-/* Hero Header */
 .hero-section {
     max-width: 800px;
     margin: 40px auto 60px;
@@ -56,7 +54,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Content & Image Styling */
 .content-wrapper {
     max-width: 800px;
     margin: 0 auto;
@@ -71,9 +68,9 @@ body {
 .item-image img {
     width: 100%;
     height: auto;
-    border-radius: 12px; /* Zapier uses rounded corners on their blog images */
+    border-radius: 12px;
     display: block;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Soft shadow */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .item-text h2 {
@@ -81,13 +78,11 @@ body {
     margin-bottom: 15px;
 }
 
-/* Container for the text below the image */
 .item-content {
-    max-width: 680px; /* Zapier keeps the text narrower than the image for readability */
-    margin: 40px auto 0; /* Centers the text and adds space below the image */
+    max-width: 680px;
+    margin: 40px auto 0;
 }
 
-/* Specific Zapier Heading Style */
 .item-content h2 {
     font-size: 2.25rem;
     font-weight: 800;
@@ -95,14 +90,12 @@ body {
     letter-spacing: -0.5px;
 }
 
-/* The "Best for" sub-header */
 .best-for {
     font-size: 1.1rem;
     margin-bottom: 24px;
     color: var(--zap-dark);
 }
 
-/* Body Text Styling */
 .description p {
     font-size: 1.15rem;
     color: #3d4244;
@@ -110,13 +103,12 @@ body {
     margin-bottom: 20px;
 }
 
-/* The Signature Zapier Button */
 .zap-btn {
     display: inline-block;
     background-color: var(--zap-orange);
     color: white;
     padding: 14px 32px;
-    border-radius: 50px; /* Makes it a pill shape */
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
     font-size: 1rem;
@@ -126,10 +118,9 @@ body {
 
 .zap-btn:hover {
     background-color: #e64600;
-    transform: scale(1.02); /* Slight pop on hover */
+    transform: scale(1.02);
 }
 
-/* Optional: Add a divider like Zapier does between items */
 .list-item {
     padding-bottom: 60px;
     border-bottom: 1px solid var(--border);
