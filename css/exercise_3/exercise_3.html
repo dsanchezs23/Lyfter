@@ -1,59 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Billboard Hot 100 Clone</title>
+    <title>Hot 100 Chart</title>
     <link rel="stylesheet" href="exercise_3.css">
 </head>
+
 <body>
 
-<div class="chart-container">
-    <header class="chart-header">
-        <h1>Billboard Hot 100™</h1>
-        <p class="date">Week of February 14, 2026</p>
+    <header class="top-nav">
+        <div class="logo">Billboard</div>
+        <a href="#">Charts</a>
+        <a href="#">Music</a>
+        <a href="#">Video</a>
+        <a href="#">Awards</a>
+        <a href="#">Business</a>
+        <div class="login-menu">
+            <a href="#">Subscribe</a>
+            <a href="#" id="login">Login</a>
+            <a class="icon-button"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Codex_icon_search.svg"
+                    alt="search-icon" class="nav-icon"></a>
+        </div>
     </header>
 
-    <div class="chart-list">
-        <div class="chart-row">
-            <div class="rank-container">
-                <span class="rank">1</span>
-                <span class="rank-status status-up">▲</span>
-            </div>
-            <div class="song-info">
-                <img src="https://charts-static.billboard.com/img/2025/11/ellalangley-gaq-choosintexas-3s2-180x180.jpg" alt="Cover Art" class="album-art">
-                <div class="details">
-                    <h3 class="song-title">Choosin' Texas</h3>
-                    <p class="artist-name">Ella Langley</p>
-                </div>
-            </div>
-            <div class="stats">
-                <div class="stat-col"><small>LAST WEEK</small> 2</div>
-                <div class="stat-col"><small>PEAK POS.</small> 1</div>
-                <div class="stat-col"><small>WKS ON CHART</small> 16</div>
-            </div>
-        </div>
-
-        <div class="chart-row">
-            <div class="rank-container">
-                <span class="rank">2</span>
-                <span class="rank-status status-down">▼</span>
-            </div>
-            <div class="song-info">
-                <img src="https://charts-static.billboard.com/img/2025/08/oliviadean-lxn-manineed-jej-180x180.jpg" alt="Cover Art" class="album-art">
-                <div class="details">
-                    <h3 class="song-title">Man I Needd</h3>
-                    <p class="artist-name">Olivia Dean</p>
-                </div>
-            </div>
-            <div class="stats">
-                <div class="stat-col"><small>LAST WEEK</small> 3</div>
-                <div class="stat-col"><small>PEAK POS.</small> 2</div>
-                <div class="stat-col"><small>WKS ON CHART</small> 24</div>
-            </div>
-        </div>
+    <div class="sub-nav">
+        <a href="#">YEAR END CHARTS</a>
+        <a href="#">BILLBOARD HOT 100</a>
+        <a href="#">BILLBOARD 200</a>
+        <a href="#">Global 200</a>
+        <a href="#">ARTISTS 100</a>
     </div>
-</div>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+            <h3>Charts</h3>
+            <ul>
+                <li><a href="#">Hot 100</a></li>
+                <li><a href="#">Billboard 200</a></li>
+                <li><a href="#">Artist 100</a></li>
+                <li><a href="#">Global 200</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="chart-header">
+                <h1>Billboard Hot 100</h1>
+                <p>Week of November 16, 2024</p>
+            </div>
+            <div class="chart-list">
+                <div class="chart-row">
+                    <div class="rank-container">
+                        <span class="rank">1</span>
+                        <span class="rank-status status-up">▲</span>
+                    </div>
+                    <div class="song-info">
+                        <img src="https://charts-static.billboard.com/img/2025/11/ellalangley-gaq-choosintexas-3s2-180x180.jpg"
+                            alt="Cover Art" class="album-art">
+                        <div class="details">
+                            <h3 class="song-title">Choosin' Texas</h3>
+                            <p class="artist-name">Ella Langley</p>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-col"><small>LAST WEEK</small> 2</div>
+                        <div class="stat-col"><small>PEAK POS.</small> 1</div>
+                        <div class="stat-col"><small>WKS ON CHART</small> 16</div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <div class="rank-container">
+                        <span class="rank">2</span>
+                        <span class="rank-status status-down">▼</span>
+                    </div>
+                    <div class="song-info">
+                        <img src="https://charts-static.billboard.com/img/2025/08/oliviadean-lxn-manineed-jej-180x180.jpg"
+                            alt="Cover Art" class="album-art">
+                        <div class="details">
+                            <h3 class="song-title">Man I Needd</h3>
+                            <p class="artist-name">Olivia Dean</p>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-col"><small>LAST WEEK</small> 3</div>
+                        <div class="stat-col"><small>PEAK POS.</small> 2</div>
+                        <div class="stat-col"><small>WKS ON CHART</small> 24</div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </main>
+
+    </div>
 
 </body>
+
 </html>
