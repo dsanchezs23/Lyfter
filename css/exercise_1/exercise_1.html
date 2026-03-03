@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="exercise_1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us!</h1>
+        <p>Got something to say? Fire away!</p>
+        
+        <form action="#" method="POST">
+            <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+            <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>            
+            <input type="email" id="email" name="email" placeholder="Email Address" required>            
+            <select id="category" name="category" required>
+                <option value="">What's your message about?</option>
+                <option value="general">General Inquiry</option>
+                <option value="support">Support</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+            </select>
+            <textarea id="message" name="message" placeholder="Fire away!" required></textarea>
+            
+            <button type="submit">Send My Message</button>
+        </form>
+    </div>
+</body>
+</html>
