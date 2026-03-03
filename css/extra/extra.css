@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #333;
+    padding-top: 80px;
+}
+
+.navbar {
+    background-color: #2c3e50;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 20px 25px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.navbar li a:hover {
+    background-color: #3498db;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.grid-container {
+    display: grid;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-box {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 1024px) {
+    .grid-container { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+    .grid-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 599px) {
+    .grid-container { grid-template-columns: 1fr; }
+}
+
+.card-section-title {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 40px 20px 100px;
+}
+
+.animal-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background-color 0.4s ease;
+    cursor: pointer;
+}
+
+.animal-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.animal-card h3 {
+    margin: 15px 0;
+}
+
+.animal-card p {
+    padding: 0 15px 20px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.animal-card:hover {
+    transform: scale(1.05);
+    background-color: #d1ecf1;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
