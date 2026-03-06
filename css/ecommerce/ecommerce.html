@@ -5,164 +5,165 @@
     <link rel="stylesheet" href="ecommerce.css" />
     <title>Fruits</title>
 </head>
-<header>
-    </div>
-    <nav class="navbar-contain">
-        <div class="main-nav">
-            <div class="nav-main">
-                <button class="nav-brand"><img
-                        src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Apple_cartoon_with_transparent_background.png"
-                        alt="logo" class="brand-image"></button>
-                <button class="nav-button">Home</button>
-                <button class="nav-button">Shop</button>
-                <button class="nav-button">Pages</button>
-                <button class="nav-button">Blog</button>
-                <button class="nav-button">Shortcodes</button>
-                <button class="nav-button">Buy Now</button>
-            </div>
-            <div>
-                <button class="icon-button"><img
-                        src="https://upload.wikimedia.org/wikipedia/commons/3/33/Codex_icon_search.svg"
-                        alt="search-icon" class="nav-icon"></button>
-                <button class="icon-button"><img
-                        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Cart_%28CoreUI_Icons_v1.0.0%29.svg"
-                        alt="search-icon" class="nav-icon"></button>
-            </div>
-        </div>
-    </nav>
-</header>
 
 <body>
-    <section>
-        <div class="poster">
-            <div class="poster-content">
-                <div>
-                    <p class="sup-text">We represent</p>
-                    <p class="main-text">Alajuela Street Style</p>
+    <header class="navbar-contain">
+        <nav class="main-nav">
+            <div class="nav-main">
+                <button class="nav-brand">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Apple_cartoon_with_transparent_background.png"
+                        alt="logo" class="brand-image">
+                </button>
+                <div class="nav-links">
+                    <button class="nav-button">Home</button>
+                    <button class="nav-button">Shop</button>
+                    <button class="nav-button">Pages</button>
+                    <button class="nav-button">Blog</button>
+                    <button class="nav-button">Buy Now</button>
                 </div>
+            </div>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input class="nav-text" type="text" placeholder="Search...">
+                    <button class="icon-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Codex_icon_search.svg"
+                            alt="search" class="nav-icon">
+                    </button>
+                </div>
+                <button class="icon-button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Cart_%28CoreUI_Icons_v1.0.0%29.svg"
+                        alt="cart" class="nav-icon">
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="poster">
+            <div class="poster-content">
+                <p class="sup-text">We represent</p>
+                <h1 class="main-text">Alajuela Street Style</h1>
                 <button class="shop-button">Shop now</button>
             </div>
-            <div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/ManggaBaru.png" alt="model"
+            <div class="poster-img-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/ManggaBaru.png" alt="Mango"
                     class="poster-image">
             </div>
-        </div>
-    </section>
-    <main class="catalog">
-        <div class="product-rows">
-            <div class="product" id="Classics">
-                <div>
-                    Classics
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Apple_icon_1.png" alt="model"
-                        class="product-image">
+        </section>
+        <section class="catalog">
+            <div class="product-rows">
+                <div class="product card-gradient-1">
+                    <h3>Classics</h3>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Apple_icon_1.png" alt="Classics"
+                        class="category-image">
+                </div>
+                <div class="product card-gradient-2">
+                    <h3>Best Sellers</h3>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Grape_icon.png" alt="Best Sellers"
+                        class="category-image">
+                </div>
+                <div class="product card-gradient-3">
+                    <h3>Exotic Fruits</h3>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Piece_of_watermelon.png" alt="Exotic"
+                        class="category-image">
                 </div>
             </div>
-            <div class="product" id="Best">
-                <div>
-                    Best Sellers
-                </div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Grape_icon.png" alt="model"
-                    class="product-image">
-            </div>
-
-            <div class="product" id="Exotic">
-                <div>
-                    Exotic Fruits
-                </div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Piece_of_watermelon.png" alt="model"
-                    class="product-image">
-            </div>
-        </div>
-
-        <div class="products-columns">
-            <div class="product-rows-second">
-                <div class="product-second">
-                    <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Watermelone1.png" alt="watermelon"
-                            class="product-image">
+            <div class="products-columns">
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Watermelone1.png"
+                            alt="Watermelon">
                     </div>
                     <div class="product-info">
-                        <div class="main-row"><span class="info-name">Watermelon</span> <button
-                                class="add-button">+</button></div>
-                        <span>Fruits</span>
+                        <div class="info-header">
+                            <span class="info-name">Watermelon</span>
+                            <button class="add-button">+</button>
+                        </div>
+                        <span class="category-tag">Fruits</span>
                         <span class="price">$4.75</span>
                     </div>
                 </div>
-                <div class="product-second">
-                    <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/NanasBaru.png" alt="pineapple"
-                            class="product-image">
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/NanasBaru.png" alt="Pineapple">
                     </div>
                     <div class="product-info">
-                        <div class="main-row"><span class="info-name">Pineapple</span> <button
-                                class="add-button">+</button></div>
-                        <span>Fruits</span>
+                        <div class="info-header">
+                            <span class="info-name">Pineapple</span>
+                            <button class="add-button">+</button>
+                        </div>
+                        <span class="category-tag">Fruits</span>
                         <span class="price">$4.75</span>
                     </div>
                 </div>
-                <div class="product-second">
-                    <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/PisangBaru.png" alt="banana"
-                            class="product-image">
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/PisangBaru.png" alt="Banana">
                     </div>
                     <div class="product-info">
-                        <div class="main-row"><span class="info-name">Banana</span> <button
-                                class="add-button">+</button></div>
-                        <span>Fruits</span>
+                        <div class="info-header">
+                            <span class="info-name">Banana</span>
+                            <button class="add-button">+</button>
+                        </div>
+                        <span class="category-tag">Fruits</span>
                         <span class="price">$2.90</span>
                     </div>
                 </div>
-            </div>
-            <div class="product-rows-second">
-                <div class="product-second">
-                    <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Pears.png" alt="pear"
-                            class="product-image">
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Pears.png" alt="Pear">
                     </div>
                     <div class="product-info">
-                        <div class="main-row"><span class="info-name">Pear</span> <button class="add-button">+</button>
+                        <div class="info-header">
+                            <span class="info-name">Pear</span>
+                            <button class="add-button">+</button>
                         </div>
-                        <span>Fruits</span>
+                        <span class="category-tag">Fruits</span>
                         <span class="price">$4.75</span>
                     </div>
                 </div>
-                <div class="product-second">
-                    <div>
+                <div class="product-card">
+                    <div class="img-wrapper">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Tomato-cut_vertical.png"
-                            alt="tomato" class="product-image">
+                            alt="Tomato">
                     </div>
                     <div class="product-info">
-                        <div class="main-row"><span class="info-name">Tomato</span> <button
-                                class="add-button">+</button></div>
-                        <span>Fruits</span>
+                        <div class="info-header">
+                            <span class="info-name">Tomato</span>
+                            <button class="add-button">+</button>
+                        </div>
+                        <span class="category-tag">Fruits</span>
                         <span class="price">$2.75</span>
                     </div>
                 </div>
-                <div class="product-second">
-                    <div>
+                <div class="product-card">
+                    <div class="img-wrapper">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Two_strawberries.png"
-                            alt="strawberries" class="product-image">
+                            alt="Strawberries">
                     </div>
                     <div class="product-info">
-                        <div class="main-row"><span class="info-name">Strawberries</span> <button
-                                class="add-button">+</button></div>
-                        <span>Fruits</span>
+                        <div class="info-header">
+                            <span class="info-name">Strawberries</span>
+                            <button class="add-button">+</button>
+                        </div>
+                        <span class="category-tag">Fruits</span>
                         <span class="price">$4.75</span>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
-    <section>
-        <div class="poster-second">
-            <form action="POST">
-                <div class="stay-connected">
-                    <p class="sup-text"> Stay in touch with us!</p>
-                    <input type="text">
-                    <button type="submit" class="send-button">Send</button>
+
+    <footer>
+        <div class="footer-content">
+            <h1 class="sup-text">Stay in touch with us!</h1>
+            <p>Get updates on sales specials and more</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="your@email.com" required>
+                <button type="submit" class="send-button">Send</button>
             </form>
         </div>
-    </section>
+    </footer>
 </body>
 
 </html>
