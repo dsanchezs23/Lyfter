@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Paragraph Color</title>
+    <link rel="stylesheet" href="extra_1.css">
+</head>
+
+<body>
+    <div class="container">
+        <p id="paragraph">This is a paragraph with random color changes!</p>
+        <button id="colorButton">Change Color</button>
+    </div>
+
+    <script>
+        const colors = ['red', 'blue', 'green', 'orange', 'purple'];
+        const paragraph = document.getElementById('paragraph');
+        const button = document.getElementById('colorButton');
+
+        button.addEventListener('click', function () {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            paragraph.style.color = randomColor;
+        });
+    </script>
+</body>
+
+</html>
