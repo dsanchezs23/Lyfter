@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List</title>
+    <link rel="stylesheet" href="exercise_1.css">
+</head>
+
+<body>
+    <h1>Dynamic List</h1>
+    <button id="addBtn">Add Element</button>
+    <button id="clearBtn">Clear List</button>
+
+    <ol id="myList"></ol>
+
+    <script>
+        let counter = 1;
+        const list = document.getElementById('myList');
+        const addBtn = document.getElementById('addBtn');
+        const clearBtn = document.getElementById('clearBtn');
+
+        addBtn.addEventListener('click', function () {
+            const li = document.createElement('li');
+            li.textContent = `Element ${counter}`;
+            list.appendChild(li);
+            counter++;
+        });
+
+        clearBtn.addEventListener('click', function () {
+            list.innerHTML = '';
+            counter = 1;
+        });
+    </script>
+</body>
+
+</html>
