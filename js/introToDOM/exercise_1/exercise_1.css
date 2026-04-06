@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+ol {
+    margin-top: 20px;
+    padding-left: 20px;
+}
