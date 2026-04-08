@@ -1,0 +1,11 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+#text {
+    padding: 15px;
+    border: 1px solid #ccc;
+    max-width: 400px;
+    margin-top: 20px;
+}
