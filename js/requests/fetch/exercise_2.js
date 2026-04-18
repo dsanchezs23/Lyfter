@@ -1,7 +1,7 @@
-async function createUser(name, email, password, address) {
+async function createObject(name, email, password, address) {
     const url = 'https://api.restful-api.dev/objects';
 
-    const userData = {
+    const objectData = {
         name: name,
         data: {
             email: email,
@@ -16,7 +16,7 @@ async function createUser(name, email, password, address) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(userData)
+            body: JSON.stringify(objectData)
         });
 
         if (!response.ok) {
@@ -24,11 +24,11 @@ async function createUser(name, email, password, address) {
         }
 
         const result = await response.json();
-        console.log("User created (Fetch):", result);
+        console.log("Object created (Fetch):", result);
         return result.id; // Crucial: Save this ID!
     } catch (error) {
         console.error("Fetch Error:", error);
     }
 }
 
-createUser('Apple MacBook Pro 16', 'john@example.com', 'password123', '123 Main Street');
+createObject('Apple MacBook Pro 16', 'john@example.com', 'password123', '123 Main Street');

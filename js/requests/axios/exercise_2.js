@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-async function createObject(name, email, password, address) {
+export async function createObject(name, email, password, address) {
     const objectData = {
         name: name,
         data: {
@@ -13,7 +13,7 @@ async function createObject(name, email, password, address) {
     try {
         const response = await axios.post('https://api.restful-api.dev/objects', objectData);
         console.log("Object created (Axios):", response.data);
-        return response.data.id;
+        return response.data;
     } catch (error) {
         console.error("Axios Error:", error.message);
     }
