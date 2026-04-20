@@ -47,3 +47,10 @@ async function createObject(userData) {
         throw error;
     }
 }
+
+const sessionInfo = {
+    id: userId,
+    loginTime: Date.now()
+};
+localStorage.setItem('user_session', JSON.stringify(sessionInfo));
+localStorage.setItem('user_session_id', userId)
