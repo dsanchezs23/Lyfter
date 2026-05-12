@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+import java.util.Date;
+
 @Entity
 @Data
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -26,4 +28,10 @@ public abstract class User {
     private String phoneNumber;
     @NotBlank
     private String role;
+    @NotBlank
+    private Date birthDate;
+    @NotBlank
+    private Date createdAt;
+    @NotBlank
+    private Date updatedAt;
 }

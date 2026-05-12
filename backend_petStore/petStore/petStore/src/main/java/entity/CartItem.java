@@ -7,6 +7,8 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+import java.util.Date;
+
 @Entity
 @Data
 public class CartItem {
@@ -19,4 +21,8 @@ public class CartItem {
     private String ProductId;
     private Integer quantity;
     private Long priceAtTime;
+    @NotBlank
+    private Date createdAt;
+    @NotBlank
+    private Date updatedAt;
 }

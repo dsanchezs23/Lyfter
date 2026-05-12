@@ -7,6 +7,8 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+import java.util.Date;
+
 @Entity
 @Data
 public class Product {
@@ -27,4 +29,8 @@ public class Product {
     private String discount;
     @NotBlank
     private String stockQuantity;
+    @NotBlank
+    private Date createdAt;
+    @NotBlank
+    private Date updatedAt;
 }

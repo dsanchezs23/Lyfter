@@ -26,4 +26,8 @@ public class Order {
     private List<CartItem> cartItems;
     @NotBlank
     private Long totalPrice;
+    @NotBlank
+    private Date createdAt;
+    @NotBlank
+    private Date updatedAt;
 }

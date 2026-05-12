@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -19,4 +20,8 @@ public class Cart {
     private String userId;
     private List<CartItem> items;
     private Long totalPrice;
+    @NotBlank
+    private Date createdAt;
+    @NotBlank
+    private Date updatedAt;
 }
