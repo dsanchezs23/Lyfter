@@ -2,7 +2,8 @@ package dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
-import java.util.Date;
+
+import java.time.LocalDateTime;
 
 @Data
 public class UserRequestDTO {
@@ -17,9 +18,7 @@ public class UserRequestDTO {
     @NotBlank(message = "Password field must be provided")
     private String password;
     @NotBlank(message = "Phone field must be provided")
-    private String phone;
-    @NotBlank(message = "Role field must be provided")
-    private String role;
+    private String phoneNumber;
     @NotBlank(message = "Birthday field must be provided")
-    private Date birthday;
+    private LocalDateTime birthday;
 }
