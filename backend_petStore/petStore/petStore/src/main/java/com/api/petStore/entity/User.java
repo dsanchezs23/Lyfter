@@ -1,7 +1,9 @@
-package entity;
+package com.api.petStore.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -11,27 +13,30 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Inheritance(strategy = InheritanceType.JOINED)
 @EntityListeners(AuditingEntityListener.class)
-public class Product {
+public abstract class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private String id;
     @NotBlank
     private String name;
     @NotBlank
-    private String description;
+    private String lastName;
+    @Column(unique = true)
+    @Email
     @NotBlank
-    private String category;
+    private String email;
     @NotBlank
-    private String image;
+    private String password;
     @NotBlank
-    private String price;
+    private String phoneNumber;
     @NotBlank
-    private String discount;
-    @NotBlank
-    private String stockQuantity;
+    private String role;
+    @NotNull
+    private LocalDateTime birthday;
     @CreatedDate
-    private LocalDateTime createdAt;
+    private LocalDateTime  createdAt;
     @LastModifiedDate
     private LocalDateTime  updatedAt;
 }

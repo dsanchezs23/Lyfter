@@ -1,4 +1,4 @@
-package enums;
+package com.api.petStore.enums;
 
 public enum Role {
     MANAGER,
