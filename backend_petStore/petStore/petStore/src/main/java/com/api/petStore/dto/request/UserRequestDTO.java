@@ -1,6 +1,7 @@
-package dto.request;
+package com.api.petStore.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -19,6 +20,6 @@ public class UserRequestDTO {
     private String password;
     @NotBlank(message = "Phone field must be provided")
     private String phoneNumber;
-    @NotBlank(message = "Birthday field must be provided")
+    @NotNull(message = "Birthday field must be provided")
     private LocalDateTime birthday;
 }

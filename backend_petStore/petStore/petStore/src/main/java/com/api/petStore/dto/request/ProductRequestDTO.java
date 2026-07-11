@@ -1,4 +1,4 @@
-package dto.request;
+package com.api.petStore.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

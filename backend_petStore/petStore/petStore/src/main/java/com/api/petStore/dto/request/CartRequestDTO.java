@@ -1,7 +1,9 @@
-package dto.request;
+package com.api.petStore.dto.request;
 
-import entity.CartItem;
+import com.api.petStore.entity.CartItem;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.util.List;
@@ -12,8 +14,8 @@ public class CartRequestDTO {
     private String id;
     @NotBlank(message="User id field must be provided")
     private String userId;
-    @NotBlank(message="Items field must be provided")
+    @NotEmpty(message="Items field must be provided")
     private List<CartItem> items;
-    @NotBlank(message="Total Price field must be provided")
+    @NotNull(message="Total Price field must be provided")
     private Long totalPrice;
 }

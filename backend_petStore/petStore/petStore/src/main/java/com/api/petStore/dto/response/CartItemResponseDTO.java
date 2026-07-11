@@ -1,4 +1,4 @@
-package dto.response;
+package com.api.petStore.dto.response;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package dto.request;
+package com.api.petStore.dto.request;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

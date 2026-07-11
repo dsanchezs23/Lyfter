@@ -1,9 +1,9 @@
-package dto.request;
+package com.api.petStore.dto.response;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class EmployeeRequestDTO extends UserRequestDTO {
+public class ManagerResponseDTO extends UserResponseDTO{
 }

@@ -1,6 +1,6 @@
-package dto.response;
+package com.api.petStore.dto.response;
 
-import entity.CartItem;
+import com.api.petStore.entity.CartItem;
 import lombok.Data;
 
 import java.time.LocalDateTime;
