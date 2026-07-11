@@ -64,3 +64,23 @@ async function updateObject(objectId, updatedData) {
         throw error;
     }
 }
+
+function checkSession() {
+    const sessionRaw = localStorage.getItem('user_session');
+    if (!sessionRaw) {
+        window.location.href = 'login.html';
+        return;
+    }
+
+    const session = JSON.parse(sessionRaw);
+    const currentTime = Date.now();
+    const fiveMinutes = 5 * 60 * 1000;
+
+    if (currentTime - session.loginTime > fiveMinutes) {
+        localStorage.removeItem('user_session');
+        alert("Session expired, please log in again.");
+        window.location.href = 'login.html';
+    }
+}
+
+checkSession();
