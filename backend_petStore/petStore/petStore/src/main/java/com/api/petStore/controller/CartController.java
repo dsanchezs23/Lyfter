@@ -23,13 +23,13 @@ public class CartController {
         return ResponseEntity.status(HttpStatus.CREATED).body(cartService.createCart(cartRequestDTO));
     }
 
-    @GetMapping
-    public ResponseEntity<CartResponseDTO> getCart(@Valid @RequestBody CartRequestDTO cartRequestDTO) {
-        return ResponseEntity.status(HttpStatus.FOUND).body(cartService.getCartById(cartRequestDTO.getId()));
+    @GetMapping("/{id}")
+    public ResponseEntity<CartResponseDTO> getCart(@PathVariable String id) {
+        return ResponseEntity.status(HttpStatus.OK).body(cartService.getCartById(id));
     }
 
     @GetMapping
     public ResponseEntity<List<CartResponseDTO>> getAllCarts() {
-        return ResponseEntity.status(HttpStatus.FOUND).body(cartService.getAllCarts());
+        return ResponseEntity.status(HttpStatus.OK).body(cartService.getAllCarts());
     }
 }

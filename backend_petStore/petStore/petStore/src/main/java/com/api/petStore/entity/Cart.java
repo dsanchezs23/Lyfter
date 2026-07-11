@@ -19,10 +19,11 @@ import java.util.List;
 @NoArgsConstructor
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     @NotBlank
     private String userId;
+    @OneToMany(targetEntity = CartItem.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_id", insertable = false, updatable = false)
     private List<CartItem> items;
     private Long totalPrice;
     @CreatedDate

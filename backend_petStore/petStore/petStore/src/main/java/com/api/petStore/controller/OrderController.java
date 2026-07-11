@@ -23,13 +23,13 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.CREATED).body(orderService.createOrder(orderRequestDTO));
     }
 
-    @GetMapping
-    public ResponseEntity<OrderResponseDTO> getOrder(@Valid @RequestBody OrderRequestDTO orderRequestDTO) {
-        return ResponseEntity.status(HttpStatus.FOUND).body(orderService.getOrderById(orderRequestDTO.getId()));
+    @GetMapping("/{id}")
+    public ResponseEntity<OrderResponseDTO> getOrder(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(orderService.getOrderById(id));
     }
 
     @GetMapping
     public ResponseEntity<List<OrderResponseDTO>> getAllOrders() {
-        return ResponseEntity.status(HttpStatus.FOUND).body(orderService.getAllOrders());
+        return ResponseEntity.status(HttpStatus.OK).body(orderService.getAllOrders());
     }
 }

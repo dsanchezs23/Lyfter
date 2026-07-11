@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos — PawStore</title>
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages/catalog.css" />
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <div class="container page-section--tight catalog-toolbar">
+      <div class="form-field catalog-toolbar__search">
+        <label class="visually-hidden" for="search">Buscar producto</label>
+        <input type="search" id="search" placeholder="Buscar producto..." />
+      </div>
+      <label class="catalog-toolbar__checkbox">
+        <input type="checkbox" id="only-available" />
+        Mostrar solo disponibles
+      </label>
+    </div>
+
+    <section class="page-section page-section--tight">
+      <div class="container">
+        <div id="product-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script type="module" src="js/pages/catalog.page.js"></script>
+</body>
+</html>

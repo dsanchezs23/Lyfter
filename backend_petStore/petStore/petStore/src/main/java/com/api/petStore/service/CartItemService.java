@@ -21,7 +21,7 @@ public class CartItemService {
 
     public CartItemResponseDTO createCartItem(CartItemRequestDTO cartItemRequestDTO){
         CartItem cartItem = new CartItem(
-                cartItemRequestDTO.getId(),
+                null,
                 cartItemRequestDTO.getCartId(),
                 cartItemRequestDTO.getProductId(),
                 cartItemRequestDTO.getQuantity(),

@@ -1,0 +1,19 @@
+.confirmation-hero {
+  text-align: center;
+  max-width: 32rem;
+  margin: 0 auto var(--space-xl) auto;
+}
+
+.confirmation-hero__icon {
+  font-size: var(--font-size-xxl);
+  color: var(--color-success);
+  margin-bottom: var(--space-md);
+}
+
+.confirmation-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  flex-wrap: wrap;
+}

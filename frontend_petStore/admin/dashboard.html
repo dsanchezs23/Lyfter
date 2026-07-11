@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de administración — PawStore</title>
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages/admin.css" />
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <section class="page-section">
+      <div class="container">
+        <h1>Administración de productos</h1>
+        <p>Gestiona el inventario y revisa las ventas recientes de PawStore.</p>
+
+        <div class="card admin-block">
+          <div class="card__body">
+            <h2>Listado de productos</h2>
+            <div id="inventory-container"></div>
+          </div>
+        </div>
+
+        <div class="card admin-block">
+          <div class="card__body">
+            <h2>Agregar nuevo producto</h2>
+            <div class="banner banner-error" id="product-form-banner" role="alert" hidden></div>
+            <form class="form" id="product-form" novalidate>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="name">Nombre</label>
+                  <input type="text" id="name" name="name" placeholder="Ej: Pelota de juguete resistente" />
+                  <span class="field-error" data-for="name"></span>
+                </div>
+                <div class="form-field">
+                  <label for="category">Categoría</label>
+                  <input type="text" id="category" name="category" placeholder="Ej: Juguetes" />
+                  <span class="field-error" data-for="category"></span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="description">Descripción</label>
+                <textarea id="description" name="description" rows="3" placeholder="Una descripción detallada del producto..."></textarea>
+                <span class="field-error" data-for="description"></span>
+              </div>
+              <div class="form-field">
+                <label for="image">URL de la imagen</label>
+                <input type="text" id="image" name="image" placeholder="https://ejemplo.com/imagen.jpg" />
+                <span class="field-error" data-for="image"></span>
+              </div>
+              <div class="form-grid form-grid--three">
+                <div class="form-field">
+                  <label for="price">Precio</label>
+                  <input type="number" id="price" name="price" min="0" step="0.01" placeholder="Ej: 19.99" />
+                  <span class="field-error" data-for="price"></span>
+                </div>
+                <div class="form-field">
+                  <label for="discount">Descuento</label>
+                  <input type="number" id="discount" name="discount" min="0" step="0.01" placeholder="Ej: 0" />
+                  <span class="field-error" data-for="discount"></span>
+                </div>
+                <div class="form-field">
+                  <label for="stockQuantity">Inventario</label>
+                  <input type="number" id="stockQuantity" name="stockQuantity" min="0" step="1" placeholder="Ej: 50" />
+                  <span class="field-error" data-for="stockQuantity"></span>
+                </div>
+              </div>
+              <button class="btn btn-primary" type="submit">Agregar producto</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="card admin-block">
+          <div class="card__body">
+            <h2>Ventas recientes</h2>
+            <div id="orders-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script type="module" src="../js/pages/admin-dashboard.page.js"></script>
+</body>
+</html>

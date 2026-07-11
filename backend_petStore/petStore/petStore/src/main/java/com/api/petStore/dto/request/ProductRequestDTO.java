@@ -5,8 +5,6 @@ import lombok.Data;
 
 @Data
 public class ProductRequestDTO {
-    @NotBlank(message = "Id field must be provided")
-    private String id;
     @NotBlank(message = "Name field must be provided")
     private String name;
     @NotBlank(message = "Description field must be provided")

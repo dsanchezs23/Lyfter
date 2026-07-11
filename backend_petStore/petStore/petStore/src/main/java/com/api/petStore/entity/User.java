@@ -1,5 +1,6 @@
 package com.api.petStore.entity;
 
+import com.api.petStore.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Table(name = "app_user")
 @Inheritance(strategy = InheritanceType.JOINED)
 @EntityListeners(AuditingEntityListener.class)
 public abstract class User {
@@ -31,8 +33,9 @@ public abstract class User {
     private String password;
     @NotBlank
     private String phoneNumber;
-    @NotBlank
-    private String role;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Role role;
     @NotNull
     private LocalDateTime birthday;
     @CreatedDate

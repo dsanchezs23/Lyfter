@@ -10,6 +10,7 @@ import com.api.petStore.repository.OrderRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,7 +22,7 @@ public class OrderService {
 
     public OrderResponseDTO createOrder(OrderRequestDTO orderRequestDTO){
         Order order = new Order(
-                orderRequestDTO.getId(),
+                null,
                 orderRequestDTO.getUserId(),
                 orderRequestDTO.getStatus(),
                 orderRequestDTO.getCartItems(),
@@ -33,9 +34,8 @@ public class OrderService {
     }
 
     public OrderResponseDTO getOrderById(Long id){
-        Order order = orderRepository.findById(id).orElseThrow(() ->
-                new RuntimeException("User not found")
-        );
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Order not found: " + id));
         return orderResponseMapper.toOrderResponseDTO(order);
     }
 
