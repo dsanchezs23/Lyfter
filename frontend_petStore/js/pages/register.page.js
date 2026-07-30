@@ -29,7 +29,7 @@ form.addEventListener('submit', async (event) => {
   const { valid, errors } = validateRegisterForm(fields);
   applyFieldErrors(form, errors);
   if (!valid) {
-    showBanner(banner, { type: 'error', message: 'Por favor completa todos los campos correctamente.' });
+    showBanner(banner, { type: 'error', message: 'Please fill in all fields correctly.' });
     return;
   }
 
@@ -49,7 +49,7 @@ form.addEventListener('submit', async (event) => {
     setSession(session);
     window.location.href = 'catalog.html';
   } catch (error) {
-    const message = error instanceof ApiError ? error.message : 'No se pudo completar el registro.';
+    const message = error instanceof ApiError ? error.message : 'Registration could not be completed.';
     showBanner(banner, { type: 'error', message });
   } finally {
     submitBtn.disabled = false;

@@ -6,7 +6,7 @@ function root(path) {
 
 export function requireAuth() {
   if (!isLoggedIn()) {
-    renderGate('Debes iniciar sesión para continuar', 'Protege tus compras y gestiona tu perfil con facilidad.', 'Ir a iniciar sesión', root('login.html'));
+    renderGate('You must log in to continue', 'Protect your purchases and manage your profile with ease.', 'Go to login', root('login.html'));
     return false;
   }
   return true;
@@ -15,7 +15,7 @@ export function requireAuth() {
 export function requireRole(roles) {
   if (!requireAuth()) return false;
   if (!hasRole(roles)) {
-    renderGate('No tienes permiso para ver esta página', 'Esta sección está reservada para el equipo administrativo.', 'Volver al inicio', root('index.html'));
+    renderGate('You do not have permission to view this page', 'This section is reserved for the administrative team.', 'Back to home', root('index.html'));
     return false;
   }
   return true;

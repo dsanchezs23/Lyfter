@@ -4,15 +4,15 @@ import { escapeHtml } from '../utils/dom.js';
 const FALLBACK_IMAGE =
   'data:image/svg+xml;utf8,' +
   encodeURIComponent(
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="%23e2e8f0"/><text x="50%" y="50%" font-family="sans-serif" font-size="20" fill="%2364748b" text-anchor="middle" dy=".3em">Sin imagen</text></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="%23e2e8f0"/><text x="50%" y="50%" font-family="sans-serif" font-size="20" fill="%2364748b" text-anchor="middle" dy=".3em">No image</text></svg>'
   );
 
 function stockLabel(product) {
   const stock = product.stockQuantity === null || product.stockQuantity === undefined ? null : Number(product.stockQuantity);
-  if (stock === null || Number.isNaN(stock)) return { text: 'Disponibilidad no informada', className: '' };
-  if (stock <= 0) return { text: 'Agotado', className: 'product-card__stock--out' };
-  if (stock <= 5) return { text: `Quedan ${stock} unidades`, className: 'product-card__stock--low' };
-  return { text: `${stock} en stock`, className: '' };
+  if (stock === null || Number.isNaN(stock)) return { text: 'Availability not reported', className: '' };
+  if (stock <= 0) return { text: 'Out of stock', className: 'product-card__stock--out' };
+  if (stock <= 5) return { text: `Only ${stock} left`, className: 'product-card__stock--low' };
+  return { text: `${stock} in stock`, className: '' };
 }
 
 export function renderProductGrid(container, products, handlers) {
@@ -36,9 +36,9 @@ function buildCard(product, { onAddToCart }) {
       <span class="product-card__price">${formatCurrency(product.price)}</span>
       <span class="product-card__stock ${stock.className}">${stock.text}</span>
       <div class="flex flex--gap">
-        <a class="btn btn-secondary" href="product.html?id=${encodeURIComponent(product.id)}">Ver detalles</a>
+        <a class="btn btn-secondary" href="product.html?id=${encodeURIComponent(product.id)}">View details</a>
         <button class="btn btn-primary" type="button" data-action="add-to-cart" ${isOutOfStock ? 'disabled' : ''}>
-          Agregar
+          Add
         </button>
       </div>
     </div>

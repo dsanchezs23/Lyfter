@@ -23,7 +23,7 @@ form.addEventListener('submit', async (event) => {
   const { valid, errors } = validateLoginForm(payload);
   applyFieldErrors(form, errors);
   if (!valid) {
-    showBanner(banner, { type: 'error', message: 'Revisa los campos marcados en rojo.' });
+    showBanner(banner, { type: 'error', message: 'Please review the fields highlighted in red.' });
     return;
   }
 
@@ -36,10 +36,10 @@ form.addEventListener('submit', async (event) => {
   } catch (error) {
     const message =
       error instanceof ApiError && error.status === 401
-        ? 'Credenciales incorrectas. Inténtalo de nuevo.'
+        ? 'Incorrect credentials. Please try again.'
         : error instanceof ApiError
           ? error.message
-          : 'No se pudo iniciar sesión.';
+          : 'Could not log in.';
     showBanner(banner, { type: 'error', message });
   } finally {
     submitBtn.disabled = false;

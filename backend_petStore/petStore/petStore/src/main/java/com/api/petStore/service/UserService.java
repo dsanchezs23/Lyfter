@@ -94,12 +94,12 @@ public class UserService {
         if (customer.isPresent()) {
             return authenticate(customer.get(), password, userResponseMapper::toCustomerResponseDTO);
         }
-        throw new InvalidCredentialsException("Credenciales incorrectas.");
+        throw new InvalidCredentialsException("Invalid credentials.");
     }
 
     private <T extends User, R extends UserResponseDTO> R authenticate(T user, String password, java.util.function.Function<T, R> mapper) {
         if (!user.getPassword().equals(password)) {
-            throw new InvalidCredentialsException("Credenciales incorrectas.");
+            throw new InvalidCredentialsException("Invalid credentials.");
         }
         return mapper.apply(user);
     }

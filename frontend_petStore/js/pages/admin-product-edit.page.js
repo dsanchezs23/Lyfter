@@ -15,15 +15,15 @@ const productId = new URLSearchParams(window.location.search).get('id');
 
 async function init() {
   if (!productId) {
-    renderError(content, 'No se especificó un producto.');
+    renderError(content, 'No product was specified.');
     return;
   }
-  renderLoading(content, 'Cargando producto...');
+  renderLoading(content, 'Loading product...');
   try {
     const product = await getProductById(productId);
     renderForm(product);
   } catch (error) {
-    const message = error instanceof ApiError ? error.message : 'No se pudo cargar el producto.';
+    const message = error instanceof ApiError ? error.message : 'The product could not be loaded.';
     renderError(content, message);
   }
 }
@@ -33,47 +33,47 @@ function renderForm(product) {
     <div class="banner banner-error" id="form-banner" role="alert" hidden></div>
     <form class="form" id="edit-form" novalidate>
       <div class="form-field">
-        <label for="name">Nombre</label>
+        <label for="name">Name</label>
         <input type="text" id="name" name="name" value="${escapeHtml(product.name)}" />
         <span class="field-error" data-for="name"></span>
       </div>
       <div class="form-field">
-        <label for="description">Descripción</label>
+        <label for="description">Description</label>
         <textarea id="description" name="description" rows="3">${escapeHtml(product.description)}</textarea>
         <span class="field-error" data-for="description"></span>
       </div>
       <div class="form-grid">
         <div class="form-field">
-          <label for="category">Categoría</label>
+          <label for="category">Category</label>
           <input type="text" id="category" name="category" value="${escapeHtml(product.category)}" />
           <span class="field-error" data-for="category"></span>
         </div>
         <div class="form-field">
-          <label for="image">URL de la imagen</label>
+          <label for="image">Image URL</label>
           <input type="text" id="image" name="image" value="${escapeHtml(product.image)}" />
           <span class="field-error" data-for="image"></span>
         </div>
       </div>
       <div class="form-grid form-grid--three">
         <div class="form-field">
-          <label for="price">Precio</label>
+          <label for="price">Price</label>
           <input type="number" id="price" name="price" min="0" step="0.01" value="${escapeHtml(product.price)}" />
           <span class="field-error" data-for="price"></span>
         </div>
         <div class="form-field">
-          <label for="discount">Descuento</label>
+          <label for="discount">Discount</label>
           <input type="number" id="discount" name="discount" min="0" step="0.01" value="${escapeHtml(product.discount)}" />
           <span class="field-error" data-for="discount"></span>
         </div>
         <div class="form-field">
-          <label for="stockQuantity">Inventario</label>
+          <label for="stockQuantity">Stock</label>
           <input type="number" id="stockQuantity" name="stockQuantity" min="0" step="1" value="${escapeHtml(product.stockQuantity ?? '0')}" />
           <span class="field-error" data-for="stockQuantity"></span>
         </div>
       </div>
       <div class="admin-edit-actions">
-        <a class="btn btn-secondary" href="dashboard.html">Cancelar</a>
-        <button class="btn btn-primary" type="submit">Guardar cambios</button>
+        <a class="btn btn-secondary" href="dashboard.html">Cancel</a>
+        <button class="btn btn-primary" type="submit">Save changes</button>
       </div>
     </form>
   `;
@@ -100,7 +100,7 @@ async function handleSubmit(event) {
   const { valid, errors } = validateProductForm(fields);
   applyFieldErrors(form, errors);
   if (!valid) {
-    showBanner(banner, { type: 'error', message: 'Por favor completa todos los campos antes de guardar los cambios.' });
+    showBanner(banner, { type: 'error', message: 'Please fill in all fields before saving the changes.' });
     return;
   }
 
@@ -108,9 +108,9 @@ async function handleSubmit(event) {
   submitBtn.disabled = true;
   try {
     await updateProduct(productId, fields);
-    showBanner(banner, { type: 'success', message: 'Producto actualizado correctamente.' });
+    showBanner(banner, { type: 'success', message: 'Product updated successfully.' });
   } catch (error) {
-    const message = error instanceof ApiError ? error.message : 'No se pudo guardar el producto.';
+    const message = error instanceof ApiError ? error.message : 'The product could not be saved.';
     showBanner(banner, { type: 'error', message });
   } finally {
     submitBtn.disabled = false;

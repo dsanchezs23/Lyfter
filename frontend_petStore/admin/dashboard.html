@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panel de administración — PawStore</title>
+  <title>Admin dashboard — PawStore</title>
   <link rel="stylesheet" href="../css/tokens.css" />
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/layout.css" />
@@ -16,68 +16,68 @@
   <main>
     <section class="page-section">
       <div class="container">
-        <h1>Administración de productos</h1>
-        <p>Gestiona el inventario y revisa las ventas recientes de PawStore.</p>
+        <h1>Product administration</h1>
+        <p>Manage the inventory and review recent sales at PawStore.</p>
 
         <div class="card admin-block">
           <div class="card__body">
-            <h2>Listado de productos</h2>
+            <h2>Product list</h2>
             <div id="inventory-container"></div>
           </div>
         </div>
 
         <div class="card admin-block">
           <div class="card__body">
-            <h2>Agregar nuevo producto</h2>
+            <h2>Add new product</h2>
             <div class="banner banner-error" id="product-form-banner" role="alert" hidden></div>
             <form class="form" id="product-form" novalidate>
               <div class="form-grid">
                 <div class="form-field">
-                  <label for="name">Nombre</label>
-                  <input type="text" id="name" name="name" placeholder="Ej: Pelota de juguete resistente" />
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" placeholder="E.g.: Durable chew toy" />
                   <span class="field-error" data-for="name"></span>
                 </div>
                 <div class="form-field">
-                  <label for="category">Categoría</label>
-                  <input type="text" id="category" name="category" placeholder="Ej: Juguetes" />
+                  <label for="category">Category</label>
+                  <input type="text" id="category" name="category" placeholder="E.g.: Toys" />
                   <span class="field-error" data-for="category"></span>
                 </div>
               </div>
               <div class="form-field">
-                <label for="description">Descripción</label>
-                <textarea id="description" name="description" rows="3" placeholder="Una descripción detallada del producto..."></textarea>
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="3" placeholder="A detailed description of the product..."></textarea>
                 <span class="field-error" data-for="description"></span>
               </div>
               <div class="form-field">
-                <label for="image">URL de la imagen</label>
-                <input type="text" id="image" name="image" placeholder="https://ejemplo.com/imagen.jpg" />
+                <label for="image">Image URL</label>
+                <input type="text" id="image" name="image" placeholder="https://example.com/image.jpg" />
                 <span class="field-error" data-for="image"></span>
               </div>
               <div class="form-grid form-grid--three">
                 <div class="form-field">
-                  <label for="price">Precio</label>
-                  <input type="number" id="price" name="price" min="0" step="0.01" placeholder="Ej: 19.99" />
+                  <label for="price">Price</label>
+                  <input type="number" id="price" name="price" min="0" step="0.01" placeholder="E.g.: 19.99" />
                   <span class="field-error" data-for="price"></span>
                 </div>
                 <div class="form-field">
-                  <label for="discount">Descuento</label>
-                  <input type="number" id="discount" name="discount" min="0" step="0.01" placeholder="Ej: 0" />
+                  <label for="discount">Discount</label>
+                  <input type="number" id="discount" name="discount" min="0" step="0.01" placeholder="E.g.: 0" />
                   <span class="field-error" data-for="discount"></span>
                 </div>
                 <div class="form-field">
-                  <label for="stockQuantity">Inventario</label>
-                  <input type="number" id="stockQuantity" name="stockQuantity" min="0" step="1" placeholder="Ej: 50" />
+                  <label for="stockQuantity">Stock</label>
+                  <input type="number" id="stockQuantity" name="stockQuantity" min="0" step="1" placeholder="E.g.: 50" />
                   <span class="field-error" data-for="stockQuantity"></span>
                 </div>
               </div>
-              <button class="btn btn-primary" type="submit">Agregar producto</button>
+              <button class="btn btn-primary" type="submit">Add product</button>
             </form>
           </div>
         </div>
 
         <div class="card admin-block">
           <div class="card__body">
-            <h2>Ventas recientes</h2>
+            <h2>Recent sales</h2>
             <div id="orders-container"></div>
           </div>
         </div>

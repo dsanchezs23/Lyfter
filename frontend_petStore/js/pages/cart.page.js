@@ -18,9 +18,9 @@ function render() {
     content.innerHTML = `
       <div class="state-gate">
         <div class="state-gate__icon">🛒</div>
-        <h2>Tu carrito está vacío</h2>
-        <p>Agrega productos desde el catálogo para comenzar tu compra.</p>
-        <a class="btn btn-primary" href="catalog.html">Ver productos</a>
+        <h2>Your cart is empty</h2>
+        <p>Add products from the catalog to start your purchase.</p>
+        <a class="btn btn-primary" href="catalog.html">View products</a>
       </div>
     `;
     return;
@@ -35,7 +35,7 @@ function render() {
             <span>Total</span>
             <span id="cart-total">${formatCurrency(cartTotal())}</span>
           </div>
-          <a class="btn btn-primary btn-block" href="checkout.html">Continuar al checkout</a>
+          <a class="btn btn-primary btn-block" href="checkout.html">Continue to checkout</a>
         </div>
       </div>
     </div>

@@ -16,11 +16,11 @@ export function renderHeader(container) {
   const count = itemCount();
 
   const navLinks = [
-    { href: root('index.html'), label: 'Inicio' },
-    { href: root('catalog.html'), label: 'Productos' },
+    { href: root('index.html'), label: 'Home' },
+    { href: root('catalog.html'), label: 'Products' },
   ];
   if (session && hasRole(['MANAGER', 'EMPLOYEE'])) {
-    navLinks.push({ href: root('admin/dashboard.html'), label: 'Administración' });
+    navLinks.push({ href: root('admin/dashboard.html'), label: 'Admin' });
   }
 
   const currentPage = window.location.pathname.split('/').pop();
@@ -33,15 +33,15 @@ export function renderHeader(container) {
 
   const actionsHtml = session
     ? `
-      <a class="cart-link" href="${root('cart.html')}" aria-label="Carrito">
+      <a class="cart-link" href="${root('cart.html')}" aria-label="Cart">
         🛒<span class="cart-badge" data-cart-badge ${count === 0 ? 'hidden' : ''}>${count}</span>
       </a>
-      <span class="site-header__user">Hola, ${escapeHtml(session.name)}</span>
-      <button class="btn btn-secondary" type="button" data-action="logout">Cerrar sesión</button>
+      <span class="site-header__user">Hi, ${escapeHtml(session.name)}</span>
+      <button class="btn btn-secondary" type="button" data-action="logout">Log out</button>
     `
     : `
-      <span class="site-header__user">Usuario: Invitado</span>
-      <a class="btn btn-primary" href="${root('login.html')}">Iniciar sesión</a>
+      <span class="site-header__user">Guest</span>
+      <a class="btn btn-primary" href="${root('login.html')}">Log in</a>
     `;
 
   container.innerHTML = `
@@ -71,10 +71,10 @@ export function renderFooter(container) {
   if (!container) return;
   container.innerHTML = `
     <div class="container site-footer__bar">
-      <span>&copy; ${new Date().getFullYear()} PawStore — Todos los derechos reservados.</span>
+      <span>&copy; ${new Date().getFullYear()} PawStore — All rights reserved.</span>
       <div class="site-footer__links">
-        <a href="${root('index.html')}">Inicio</a>
-        <a href="${root('catalog.html')}">Productos</a>
+        <a href="${root('index.html')}">Home</a>
+        <a href="${root('catalog.html')}">Products</a>
       </div>
     </div>
   `;

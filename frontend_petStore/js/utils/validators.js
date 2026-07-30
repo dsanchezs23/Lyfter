@@ -29,44 +29,44 @@ export function isNonNegativeNumber(value) {
 
 export function validateLoginForm({ email, password }) {
   const errors = {};
-  if (!isValidEmail(email)) errors.email = 'Ingresa un correo electrónico válido.';
-  if (!isRequired(password)) errors.password = 'La contraseña es obligatoria.';
+  if (!isValidEmail(email)) errors.email = 'Enter a valid email address.';
+  if (!isRequired(password)) errors.password = 'Password is required.';
   return { valid: Object.keys(errors).length === 0, errors };
 }
 
 export function validateRegisterForm({ name, lastName, email, password, confirmPassword, shippingAddress, phoneNumber, birthday }) {
   const errors = {};
-  if (!isRequired(name)) errors.name = 'El nombre es obligatorio.';
-  if (!isRequired(lastName)) errors.lastName = 'El apellido es obligatorio.';
-  if (!isValidEmail(email)) errors.email = 'Ingresa un correo electrónico válido.';
+  if (!isRequired(name)) errors.name = 'First name is required.';
+  if (!isRequired(lastName)) errors.lastName = 'Last name is required.';
+  if (!isValidEmail(email)) errors.email = 'Enter a valid email address.';
   if (!isValidPassword(password)) {
-    errors.password = `La contraseña debe tener al menos ${MIN_PASSWORD_LENGTH} caracteres, con letras y números.`;
+    errors.password = `Password must be at least ${MIN_PASSWORD_LENGTH} characters, with letters and numbers.`;
   }
-  if (password !== confirmPassword) errors.confirmPassword = 'Las contraseñas no coinciden.';
-  if (!isRequired(shippingAddress)) errors.shippingAddress = 'La dirección de envío es obligatoria.';
-  if (!isValidPhone(phoneNumber)) errors.phoneNumber = 'Ingresa un teléfono válido (solo números, 8 a 15 dígitos).';
-  if (!isRequired(birthday)) errors.birthday = 'La fecha de nacimiento es obligatoria.';
+  if (password !== confirmPassword) errors.confirmPassword = 'Passwords do not match.';
+  if (!isRequired(shippingAddress)) errors.shippingAddress = 'Shipping address is required.';
+  if (!isValidPhone(phoneNumber)) errors.phoneNumber = 'Enter a valid phone number (digits only, 8 to 15 digits).';
+  if (!isRequired(birthday)) errors.birthday = 'Date of birth is required.';
   return { valid: Object.keys(errors).length === 0, errors };
 }
 
 export function validateProductForm({ name, description, category, image, price, discount, stockQuantity }) {
   const errors = {};
-  if (!isRequired(name)) errors.name = 'El nombre es obligatorio.';
-  if (!isRequired(description)) errors.description = 'La descripción es obligatoria.';
-  if (!isRequired(category)) errors.category = 'La categoría es obligatoria.';
-  if (!isRequired(image)) errors.image = 'La URL de la imagen es obligatoria.';
-  if (!isNonNegativeNumber(price)) errors.price = 'El precio debe ser un número válido.';
-  if (!isNonNegativeNumber(discount)) errors.discount = 'El descuento debe ser un número válido.';
-  if (!isPositiveInteger(stockQuantity)) errors.stockQuantity = 'El inventario debe ser un número entero mayor o igual a 0.';
+  if (!isRequired(name)) errors.name = 'Name is required.';
+  if (!isRequired(description)) errors.description = 'Description is required.';
+  if (!isRequired(category)) errors.category = 'Category is required.';
+  if (!isRequired(image)) errors.image = 'Image URL is required.';
+  if (!isNonNegativeNumber(price)) errors.price = 'Price must be a valid number.';
+  if (!isNonNegativeNumber(discount)) errors.discount = 'Discount must be a valid number.';
+  if (!isPositiveInteger(stockQuantity)) errors.stockQuantity = 'Stock must be a whole number greater than or equal to 0.';
   return { valid: Object.keys(errors).length === 0, errors };
 }
 
 export function validateCheckoutForm({ fullName, email, address, phoneNumber }) {
   const errors = {};
-  if (!isRequired(fullName)) errors.fullName = 'El nombre completo es obligatorio.';
-  if (!isValidEmail(email)) errors.email = 'Ingresa un correo electrónico válido.';
-  if (!isRequired(address)) errors.address = 'La dirección es obligatoria.';
-  if (!isValidPhone(phoneNumber)) errors.phoneNumber = 'Ingresa un teléfono válido (solo números, 8 a 15 dígitos).';
+  if (!isRequired(fullName)) errors.fullName = 'Full name is required.';
+  if (!isValidEmail(email)) errors.email = 'Enter a valid email address.';
+  if (!isRequired(address)) errors.address = 'Address is required.';
+  if (!isValidPhone(phoneNumber)) errors.phoneNumber = 'Enter a valid phone number (digits only, 8 to 15 digits).';
   return { valid: Object.keys(errors).length === 0, errors };
 }
 

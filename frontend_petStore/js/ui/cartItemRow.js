@@ -15,15 +15,15 @@ function buildRow(item, { onQuantityChange, onRemove }) {
     <img class="cart-item__image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" />
     <div class="cart-item__info">
       <div class="cart-item__name">${escapeHtml(item.name)}</div>
-      <div class="cart-item__price">${formatCurrency(item.price)} c/u</div>
+      <div class="cart-item__price">${formatCurrency(item.price)} each</div>
     </div>
     <div class="qty-control">
-      <button type="button" data-action="decrease" aria-label="Disminuir cantidad">−</button>
+      <button type="button" data-action="decrease" aria-label="Decrease quantity">−</button>
       <span>${item.quantity}</span>
-      <button type="button" data-action="increase" aria-label="Aumentar cantidad">+</button>
+      <button type="button" data-action="increase" aria-label="Increase quantity">+</button>
     </div>
     <div class="cart-item__subtotal">${formatCurrency(item.price * item.quantity)}</div>
-    <button class="btn btn-danger" type="button" data-action="remove" aria-label="Eliminar producto">Eliminar</button>
+    <button class="btn btn-danger" type="button" data-action="remove" aria-label="Remove product">Remove</button>
   `;
 
   row.querySelector('[data-action="decrease"]').addEventListener('click', () => {

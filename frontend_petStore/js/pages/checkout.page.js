@@ -22,9 +22,9 @@ function render() {
     content.innerHTML = `
       <div class="state-gate">
         <div class="state-gate__icon">🛒</div>
-        <h2>No hay productos para procesar</h2>
-        <p>Agrega productos al carrito antes de continuar al checkout.</p>
-        <a class="btn btn-primary" href="catalog.html">Ver productos</a>
+        <h2>There are no products to process</h2>
+        <p>Add products to your cart before continuing to checkout.</p>
+        <a class="btn btn-primary" href="catalog.html">View products</a>
       </div>
     `;
     return;
@@ -47,44 +47,44 @@ function render() {
     <div class="checkout-layout">
       <div class="card">
         <div class="card__body">
-          <h2>Información de compra</h2>
+          <h2>Purchase information</h2>
           <div class="banner banner-error" id="form-banner" role="alert" hidden></div>
           <form class="form" id="checkout-form" novalidate>
             <div class="form-field">
-              <label for="fullName">Nombre completo</label>
+              <label for="fullName">Full name</label>
               <input type="text" id="fullName" name="fullName" value="${escapeHtml(`${session?.name ?? ''} ${session?.lastName ?? ''}`.trim())}" />
               <span class="field-error" data-for="fullName"></span>
             </div>
             <div class="form-field">
-              <label for="email">Correo electrónico</label>
+              <label for="email">Email address</label>
               <input type="email" id="email" name="email" value="${escapeHtml(session?.email ?? '')}" />
               <span class="field-error" data-for="email"></span>
             </div>
             <div class="form-field">
-              <label for="address">Dirección</label>
+              <label for="address">Address</label>
               <input type="text" id="address" name="address" value="${escapeHtml(session?.shippingAddress ?? '')}" />
               <span class="field-error" data-for="address"></span>
             </div>
             <div class="form-field">
-              <label for="phoneNumber">Teléfono</label>
+              <label for="phoneNumber">Phone</label>
               <input type="tel" id="phoneNumber" name="phoneNumber" />
               <span class="field-error" data-for="phoneNumber"></span>
             </div>
-            <p>Esta información se utilizará para completar el envío de tu pedido.</p>
+            <p>This information will be used to complete the delivery of your order.</p>
           </form>
         </div>
       </div>
       <div class="card">
         <div class="card__body">
-          <h2>Resumen del pedido</h2>
+          <h2>Order summary</h2>
           ${linesHtml}
           <div class="checkout-total">
             <span>Total</span>
             <span>${formatCurrency(cartTotal())}</span>
           </div>
           <div class="flex flex--gap" style="flex-direction: column;">
-            <button class="btn btn-primary btn-block" type="submit" form="checkout-form">Confirmar compra</button>
-            <a class="btn btn-secondary btn-block" href="cart.html">Cancelar</a>
+            <button class="btn btn-primary btn-block" type="submit" form="checkout-form">Confirm purchase</button>
+            <a class="btn btn-secondary btn-block" href="cart.html">Cancel</a>
           </div>
         </div>
       </div>
@@ -110,11 +110,11 @@ async function handleSubmit(event) {
   const { valid, errors } = validateCheckoutForm(fields);
   applyFieldErrors(form, errors);
   if (!valid) {
-    showBanner(banner, { type: 'error', message: 'Revisa los campos marcados en rojo.' });
+    showBanner(banner, { type: 'error', message: 'Please review the fields highlighted in red.' });
     return;
   }
 
-  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitBtn = document.querySelector('button[form="checkout-form"]');
   submitBtn.disabled = true;
 
   const cart = getCart();
@@ -138,7 +138,7 @@ async function handleSubmit(event) {
     clearCart();
     window.location.href = `confirmation.html?orderId=${encodeURIComponent(order.id)}`;
   } catch (error) {
-    const message = error instanceof ApiError ? error.message : 'No se pudo procesar la compra.';
+    const message = error instanceof ApiError ? error.message : 'The purchase could not be processed.';
     showBanner(banner, { type: 'error', message });
     submitBtn.disabled = false;
   }

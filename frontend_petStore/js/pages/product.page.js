@@ -16,15 +16,15 @@ let quantity = 1;
 
 async function init() {
   if (!productId) {
-    renderError(container, 'No se especificó un producto.');
+    renderError(container, 'No product was specified.');
     return;
   }
-  renderLoading(container, 'Cargando producto...');
+  renderLoading(container, 'Loading product...');
   try {
     const product = await getProductById(productId);
     renderProduct(product);
   } catch (error) {
-    const message = error instanceof ApiError ? error.message : 'No se pudo cargar el producto.';
+    const message = error instanceof ApiError ? error.message : 'The product could not be loaded.';
     renderError(container, message);
   }
 }
@@ -46,14 +46,14 @@ function renderProduct(product) {
         <div id="product-banner" class="banner banner-error" role="alert" hidden></div>
         <div class="product-detail__actions">
           <div class="qty-control">
-            <button type="button" data-action="decrease" aria-label="Disminuir cantidad">−</button>
+            <button type="button" data-action="decrease" aria-label="Decrease quantity">−</button>
             <span id="quantity-display">1</span>
-            <button type="button" data-action="increase" aria-label="Aumentar cantidad">+</button>
+            <button type="button" data-action="increase" aria-label="Increase quantity">+</button>
           </div>
           <button class="btn btn-primary" type="button" id="add-to-cart-btn" ${outOfStock ? 'disabled' : ''}>
-            ${outOfStock ? 'Agotado' : 'Agregar al carrito'}
+            ${outOfStock ? 'Out of stock' : 'Add to cart'}
           </button>
-          <a class="btn btn-secondary" href="catalog.html">Volver al catálogo</a>
+          <a class="btn btn-secondary" href="catalog.html">Back to catalog</a>
         </div>
       </div>
     </div>
@@ -73,7 +73,7 @@ function renderProduct(product) {
     addItem(product, quantity);
     const banner = document.getElementById('product-banner');
     banner.className = 'banner banner-success';
-    banner.textContent = `${quantity} × ${product.name} agregado al carrito.`;
+    banner.textContent = `${quantity} × ${product.name} added to your cart.`;
     banner.hidden = false;
   });
 }

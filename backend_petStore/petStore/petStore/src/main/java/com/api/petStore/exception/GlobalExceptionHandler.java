@@ -25,17 +25,17 @@ public class GlobalExceptionHandler {
         String message = ex.getBindingResult().getFieldErrors().stream()
                 .map(fieldError -> fieldError.getField() + ": " + fieldError.getDefaultMessage())
                 .collect(Collectors.joining("; "));
-        return body(HttpStatus.BAD_REQUEST, message.isEmpty() ? "Datos inválidos." : message);
+        return body(HttpStatus.BAD_REQUEST, message.isEmpty() ? "Invalid data." : message);
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<Map<String, Object>> handleUnreadable(HttpMessageNotReadableException ex) {
-        return body(HttpStatus.BAD_REQUEST, "El cuerpo de la solicitud es inválido.");
+        return body(HttpStatus.BAD_REQUEST, "The request body is invalid.");
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity<Map<String, Object>> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
-        return body(HttpStatus.BAD_REQUEST, "Parámetro inválido: " + ex.getName());
+        return body(HttpStatus.BAD_REQUEST, "Invalid parameter: " + ex.getName());
     }
 
     @ExceptionHandler(NoSuchElementException.class)
@@ -56,7 +56,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleGeneric(Exception ex) {
         log.error("Unhandled exception", ex);
-        return body(HttpStatus.INTERNAL_SERVER_ERROR, "Ocurrió un error inesperado en el servidor.");
+        return body(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected server error occurred.");
     }
 
     private ResponseEntity<Map<String, Object>> body(HttpStatus status, String message) {

@@ -18,16 +18,16 @@ const productForm = document.getElementById('product-form');
 const productFormBanner = document.getElementById('product-form-banner');
 
 async function loadInventory() {
-  renderLoading(inventoryContainer, 'Cargando inventario...');
+  renderLoading(inventoryContainer, 'Loading inventory...');
   try {
     const products = await getAllProducts();
     if (products.length === 0) {
-      renderEmpty(inventoryContainer, 'Todavía no hay productos registrados.');
+      renderEmpty(inventoryContainer, 'No products have been registered yet.');
       return;
     }
     renderInventoryTable(products);
   } catch (error) {
-    const message = error instanceof ApiError ? error.message : 'No se pudo cargar el inventario.';
+    const message = error instanceof ApiError ? error.message : 'The inventory could not be loaded.';
     renderError(inventoryContainer, message);
   }
 }
@@ -42,7 +42,7 @@ function renderInventoryTable(products) {
         <td>${formatCurrency(product.price)}</td>
         <td>${escapeHtml(product.category)}</td>
         <td>${product.stockQuantity ?? '—'}</td>
-        <td><a class="btn btn-secondary" href="product-edit.html?id=${encodeURIComponent(product.id)}">Editar</a></td>
+        <td><a class="btn btn-secondary" href="product-edit.html?id=${encodeURIComponent(product.id)}">Edit</a></td>
       </tr>`
     )
     .join('');
@@ -51,7 +51,7 @@ function renderInventoryTable(products) {
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Categoría</th><th>Stock</th><th>Acciones</th></tr>
+          <tr><th>ID</th><th>Name</th><th>Price</th><th>Category</th><th>Stock</th><th>Actions</th></tr>
         </thead>
         <tbody>${rows}</tbody>
       </table>
@@ -60,16 +60,16 @@ function renderInventoryTable(products) {
 }
 
 async function loadOrders() {
-  renderLoading(ordersContainer, 'Cargando ventas...');
+  renderLoading(ordersContainer, 'Loading sales...');
   try {
     const orders = await getAllOrders();
     if (orders.length === 0) {
-      renderEmpty(ordersContainer, 'Todavía no se han registrado ventas.');
+      renderEmpty(ordersContainer, 'No sales have been recorded yet.');
       return;
     }
     renderOrdersTable(orders);
   } catch (error) {
-    const message = error instanceof ApiError ? error.message : 'No se pudo cargar el historial de ventas.';
+    const message = error instanceof ApiError ? error.message : 'The sales history could not be loaded.';
     renderError(ordersContainer, message);
   }
 }
@@ -93,7 +93,7 @@ function renderOrdersTable(orders) {
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>ID</th><th>Cliente</th><th>Estado</th><th>Ítems</th><th>Total</th><th>Fecha</th></tr>
+          <tr><th>ID</th><th>Customer</th><th>Status</th><th>Items</th><th>Total</th><th>Date</th></tr>
         </thead>
         <tbody>${rows}</tbody>
       </table>
@@ -118,7 +118,7 @@ productForm.addEventListener('submit', async (event) => {
   const { valid, errors } = validateProductForm(fields);
   applyFieldErrors(productForm, errors);
   if (!valid) {
-    showBanner(productFormBanner, { type: 'error', message: 'Por favor completa todos los campos correctamente.' });
+    showBanner(productFormBanner, { type: 'error', message: 'Please fill in all fields correctly.' });
     return;
   }
 
@@ -126,11 +126,11 @@ productForm.addEventListener('submit', async (event) => {
   submitBtn.disabled = true;
   try {
     await createProduct(fields);
-    showBanner(productFormBanner, { type: 'success', message: 'Producto agregado correctamente.' });
+    showBanner(productFormBanner, { type: 'success', message: 'Product added successfully.' });
     productForm.reset();
     await loadInventory();
   } catch (error) {
-    const message = error instanceof ApiError ? error.message : 'No se pudo agregar el producto.';
+    const message = error instanceof ApiError ? error.message : 'The product could not be added.';
     showBanner(productFormBanner, { type: 'error', message });
   } finally {
     submitBtn.disabled = false;

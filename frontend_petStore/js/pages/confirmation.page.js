@@ -39,13 +39,13 @@ function renderConfirmation({ items, total }) {
   content.innerHTML = `
     <div class="confirmation-hero">
       <div class="confirmation-hero__icon">✅</div>
-      <h1>Compra Finalizada</h1>
-      <p>Tu pedido <strong>#${escapeHtml(orderId)}</strong> fue procesado correctamente. ¡Gracias por comprar en PawStore!</p>
+      <h1>Order Complete</h1>
+      <p>Your order <strong>#${escapeHtml(orderId)}</strong> was processed successfully. Thanks for shopping at PawStore!</p>
     </div>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>Producto</th><th>Cantidad</th><th>Precio unitario</th><th>Subtotal</th></tr>
+          <tr><th>Product</th><th>Quantity</th><th>Unit price</th><th>Subtotal</th></tr>
         </thead>
         <tbody>${rowsHtml}</tbody>
       </table>
@@ -55,15 +55,15 @@ function renderConfirmation({ items, total }) {
       <span>${formatCurrency(total)}</span>
     </div>
     <div class="confirmation-actions">
-      <a class="btn btn-primary" href="catalog.html">Volver al catálogo</a>
-      <a class="btn btn-secondary" href="index.html">Ir al inicio</a>
+      <a class="btn btn-primary" href="catalog.html">Back to catalog</a>
+      <a class="btn btn-secondary" href="index.html">Go to home</a>
     </div>
   `;
 }
 
 async function init() {
   if (!orderId) {
-    renderError(content, 'No se especificó un pedido.');
+    renderError(content, 'No order was specified.');
     return;
   }
 
@@ -73,19 +73,19 @@ async function init() {
     return;
   }
 
-  renderLoading(content, 'Cargando pedido...');
+  renderLoading(content, 'Loading order...');
   try {
     const order = await getOrder(orderId);
     renderConfirmation({
       items: order.cartItems.map((item) => ({
-        name: `Producto ${item.productId}`,
+        name: `Product ${item.productId}`,
         quantity: item.quantity,
         price: item.priceAtTime,
       })),
       total: order.totalPrice,
     });
   } catch (error) {
-    const message = error instanceof ApiError ? error.message : 'No se pudo cargar el pedido.';
+    const message = error instanceof ApiError ? error.message : 'The order could not be loaded.';
     renderError(content, message);
   }
 }

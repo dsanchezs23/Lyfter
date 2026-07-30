@@ -31,7 +31,7 @@ function applyFilters() {
   });
 
   if (filtered.length === 0) {
-    renderEmpty(grid, allProducts.length === 0 ? 'Aún no hay productos disponibles en el catálogo.' : 'No se encontraron productos con esos filtros.');
+    renderEmpty(grid, allProducts.length === 0 ? 'There are no products available in the catalog yet.' : 'No products matched those filters.');
     return;
   }
   renderProductGrid(grid, filtered, { onAddToCart: handleAddToCart });
@@ -40,7 +40,7 @@ function applyFilters() {
 function handleAddToCart(product, quantity) {
   addItem(product, quantity);
   const banner = ensureToast();
-  showBanner(banner, { type: 'success', message: `${product.name} se agregó al carrito.` });
+  showBanner(banner, { type: 'success', message: `${product.name} was added to your cart.` });
   setTimeout(() => hideBanner(banner), 2500);
 }
 
@@ -57,12 +57,12 @@ function ensureToast() {
 }
 
 async function init() {
-  renderLoading(grid, 'Cargando productos...');
+  renderLoading(grid, 'Loading products...');
   try {
     allProducts = await getAllProducts();
     applyFilters();
   } catch (error) {
-    const message = error instanceof ApiError ? error.message : 'No se pudo cargar el catálogo.';
+    const message = error instanceof ApiError ? error.message : 'The catalog could not be loaded.';
     renderError(grid, message);
   }
 }

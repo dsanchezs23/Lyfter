@@ -16,7 +16,7 @@ async function request(path, { method = 'GET', body } = {}) {
       body: body ? JSON.stringify(body) : undefined,
     });
   } catch {
-    throw new ApiError('No se pudo conectar con el servidor. Verifica que el backend esté disponible.', 0);
+    throw new ApiError('Could not connect to the server. Please check that the backend is available.', 0);
   }
 
   const text = await response.text();
