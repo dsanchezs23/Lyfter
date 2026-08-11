@@ -1,0 +1,36 @@
+.auth-section {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-card {
+  max-width: 26rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.auth-card--wide {
+  max-width: 34rem;
+}
+
+.auth-card__title {
+  text-align: center;
+}
+
+.auth-card__footer {
+  text-align: center;
+  margin-top: var(--space-md);
+  margin-bottom: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+@media (max-width: 32em) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
