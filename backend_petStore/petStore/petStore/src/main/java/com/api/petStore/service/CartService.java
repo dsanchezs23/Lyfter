@@ -10,6 +10,8 @@ import com.api.petStore.repository.CartRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,8 +22,10 @@ public class CartService {
     private final CartResponseMapper cartResponseMapper;
 
     public CartResponseDTO createCart(CartRequestDTO cartRequestDTO){
+        String cartId = UUID.randomUUID().toString();
+        cartRequestDTO.getItems().forEach(item -> item.setCartId(cartId));
         Cart cart = new Cart(
-                cartRequestDTO.getId(),
+                cartId,
                 cartRequestDTO.getUserId(),
                 cartRequestDTO.getItems(),
                 cartRequestDTO.getTotalPrice(),
@@ -32,7 +36,9 @@ public class CartService {
     }
 
     public CartResponseDTO getCartById(String id){
-        return cartResponseMapper.toCartResponseDTO((cartRepository.findById(id)));
+        Cart cart = cartRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Cart not found: " + id));
+        return cartResponseMapper.toCartResponseDTO(cart);
     }
 
     public List<CartResponseDTO> getAllCarts() {
