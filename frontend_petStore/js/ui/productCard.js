@@ -1,4 +1,4 @@
-import { formatCurrency } from '../utils/format.js';
+import { formatCurrency, hasDiscount, effectivePrice } from '../utils/format.js';
 import { escapeHtml } from '../utils/dom.js';
 
 const FALLBACK_IMAGE =
@@ -27,13 +27,20 @@ function buildCard(product, { onAddToCart }) {
   const stock = stockLabel(product);
   const isOutOfStock = stock.className === 'product-card__stock--out';
 
+  const discounted = hasDiscount(product);
+  const priceHtml = discounted
+    ? `<span class="product-card__price">${formatCurrency(effectivePrice(product))}</span>
+       <span class="product-card__price-original">${formatCurrency(product.price)}</span>
+       <span class="badge badge-discount">-${Number(product.discount)}%</span>`
+    : `<span class="product-card__price">${formatCurrency(product.price)}</span>`;
+
   const card = document.createElement('article');
   card.className = 'card product-card';
   card.innerHTML = `
     <img class="product-card__image" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" />
     <div class="product-card__body">
       <span class="product-card__name">${escapeHtml(product.name)}</span>
-      <span class="product-card__price">${formatCurrency(product.price)}</span>
+      <div class="product-card__price-row">${priceHtml}</div>
       <span class="product-card__stock ${stock.className}">${stock.text}</span>
       <div class="flex flex--gap">
         <a class="btn btn-secondary" href="product.html?id=${encodeURIComponent(product.id)}">View details</a>

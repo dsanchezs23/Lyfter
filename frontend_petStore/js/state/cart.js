@@ -1,3 +1,5 @@
+import { effectivePrice } from '../utils/format.js';
+
 const CART_KEY = 'petstore_cart';
 
 function emptyCart() {
@@ -43,7 +45,7 @@ export function addItem(product, quantity) {
       productId: product.id,
       name: product.name,
       image: product.image,
-      price: Number(product.price),
+      price: effectivePrice(product),
       quantity,
     });
   }

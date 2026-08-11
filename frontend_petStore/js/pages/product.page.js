@@ -2,7 +2,7 @@ import { renderHeader, renderFooter } from '../ui/header.js';
 import { renderLoading, renderError } from '../ui/states.js';
 import { getProductById } from '../api/productApi.js';
 import { addItem } from '../state/cart.js';
-import { formatCurrency } from '../utils/format.js';
+import { formatCurrency, hasDiscount, effectivePrice } from '../utils/format.js';
 import { escapeHtml } from '../utils/dom.js';
 import { ApiError } from '../api/http.js';
 
@@ -32,6 +32,12 @@ async function init() {
 function renderProduct(product) {
   const stock = Number(product.stockQuantity);
   const outOfStock = !Number.isNaN(stock) && stock <= 0;
+  const discounted = hasDiscount(product);
+  const priceHtml = discounted
+    ? `<span class="product-detail__price">${formatCurrency(effectivePrice(product))}</span>
+       <span class="product-card__price-original">${formatCurrency(product.price)}</span>
+       <span class="badge badge-discount">-${Number(product.discount)}%</span>`
+    : `<span class="product-detail__price">${formatCurrency(product.price)}</span>`;
 
   container.innerHTML = `
     <div class="product-detail">
@@ -41,7 +47,7 @@ function renderProduct(product) {
       <div class="product-detail__info">
         <span class="product-detail__category">${escapeHtml(product.category)}</span>
         <h1>${escapeHtml(product.name)}</h1>
-        <div class="product-detail__price">${formatCurrency(product.price)}</div>
+        <div class="product-card__price-row">${priceHtml}</div>
         <p>${escapeHtml(product.description)}</p>
         <div id="product-banner" class="banner banner-error" role="alert" hidden></div>
         <div class="product-detail__actions">
