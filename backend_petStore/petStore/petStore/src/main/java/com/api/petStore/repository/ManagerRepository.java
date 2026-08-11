@@ -3,6 +3,8 @@ package com.api.petStore.repository;
 import com.api.petStore.entity.Manager;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ManagerRepository extends JpaRepository<Manager, Long> {
-    Manager findById (String id);
+import java.util.Optional;
+
+public interface ManagerRepository extends JpaRepository<Manager, String> {
+    Optional<Manager> findByEmail(String email);
 }
