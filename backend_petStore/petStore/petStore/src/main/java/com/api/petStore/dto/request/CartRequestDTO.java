@@ -10,8 +10,6 @@ import java.util.List;
 
 @Data
 public class CartRequestDTO {
-    @NotBlank(message="Id field must be provided")
-    private String id;
     @NotBlank(message="User id field must be provided")
     private String userId;
     @NotEmpty(message="Items field must be provided")
