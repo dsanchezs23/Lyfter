@@ -18,7 +18,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     @NotBlank
     private String name;
