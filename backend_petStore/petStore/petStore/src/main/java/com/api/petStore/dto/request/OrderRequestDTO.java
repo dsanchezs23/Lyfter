@@ -10,8 +10,6 @@ import java.util.List;
 
 @Data
 public class OrderRequestDTO {
-    @NotNull(message = "Id field must be provided")
-    private Long id;
     @NotBlank(message = "User Id field must be provided")
     private String userId;
     @NotBlank(message = "Status field must be provided")

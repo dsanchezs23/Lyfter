@@ -8,8 +8,6 @@ import java.time.LocalDateTime;
 
 @Data
 public class UserRequestDTO {
-    @NotBlank(message = "Id field must be provided")
-    private String id;
     @NotBlank(message = "Name field must be provided")
     private String name;
     @NotBlank(message = "LastName field must be provided")

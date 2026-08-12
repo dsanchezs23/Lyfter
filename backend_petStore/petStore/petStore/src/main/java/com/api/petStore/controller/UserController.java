@@ -1,6 +1,7 @@
 package com.api.petStore.controller;
 
-import com.api.petStore.dto.request.UserRequestDTO;
+import com.api.petStore.dto.request.CustomerRequestDTO;
+import com.api.petStore.dto.request.LoginRequestDTO;
 import com.api.petStore.dto.response.UserResponseDTO;
 import com.api.petStore.enums.Role;
 import jakarta.validation.Valid;
@@ -19,18 +20,23 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping
-    public ResponseEntity<UserResponseDTO> create(@Valid @RequestBody UserRequestDTO userRequestDTO, @Valid @PathVariable Role role) throws Exception {
+    @PostMapping("/login")
+    public ResponseEntity<UserResponseDTO> login(@Valid @RequestBody LoginRequestDTO loginRequestDTO) {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.login(loginRequestDTO.getEmail(), loginRequestDTO.getPassword()));
+    }
+
+    @PostMapping("/{role}")
+    public ResponseEntity<UserResponseDTO> create(@PathVariable Role role, @Valid @RequestBody CustomerRequestDTO userRequestDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(userRequestDTO, role));
     }
 
-    @GetMapping
-    public ResponseEntity<UserResponseDTO> getUser(@Valid @RequestBody UserRequestDTO userRequestDTO, @Valid @PathVariable Role role) throws Exception {
-        return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUserById(userRequestDTO.getId(), role));
+    @GetMapping("/{role}/{id}")
+    public ResponseEntity<UserResponseDTO> getUser(@PathVariable Role role, @PathVariable String id) {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.getUserById(id, role));
     }
 
-    @GetMapping
-    public ResponseEntity<List<UserResponseDTO>> getAllUsers(@PathVariable Role role) throws Exception {
-        return ResponseEntity.status(HttpStatus.FOUND).body(userService.getAllUsers(role));
+    @GetMapping("/{role}")
+    public ResponseEntity<List<UserResponseDTO>> getAllUsers(@PathVariable Role role) {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.getAllUsers(role));
     }
 }

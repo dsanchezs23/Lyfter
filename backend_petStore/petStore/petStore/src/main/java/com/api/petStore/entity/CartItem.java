@@ -20,7 +20,7 @@ public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+    @Column(name = "cart_id")
     private String cartId;
     @NotBlank
     private String productId;

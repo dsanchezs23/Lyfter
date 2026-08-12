@@ -10,6 +10,8 @@ import com.api.petStore.repository.ProductRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,7 +22,7 @@ public class ProductService {
 
     public ProductResponseDTO createProduct(ProductRequestDTO productRequestDTO){
         Product product = new Product(
-                productRequestDTO.getId(),
+                UUID.randomUUID().toString(),
                 productRequestDTO.getName(),
                 productRequestDTO.getDescription(),
                 productRequestDTO.getCategory(),
@@ -35,12 +37,27 @@ public class ProductService {
     }
 
     public ProductResponseDTO getProductById(String id){
-        return productResponseMapper.toProductResponseDTO((productRepository.findById(id)));
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Product not found: " + id));
+        return productResponseMapper.toProductResponseDTO(product);
     }
 
     public List<ProductResponseDTO> getAllProducts() {
        return productRepository.findAll().stream()
                .map(productResponseMapper::toProductResponseDTO)
                .collect(Collectors.toList());
+    }
+
+    public ProductResponseDTO updateProduct(String id, ProductRequestDTO productRequestDTO) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Product not found: " + id));
+        product.setName(productRequestDTO.getName());
+        product.setDescription(productRequestDTO.getDescription());
+        product.setCategory(productRequestDTO.getCategory());
+        product.setImage(productRequestDTO.getImage());
+        product.setPrice(productRequestDTO.getPrice());
+        product.setDiscount(productRequestDTO.getDiscount());
+        product.setStockQuantity(productRequestDTO.getStockQuantity());
+        return productResponseMapper.toProductResponseDTO(productRepository.save(product));
     }
 }
