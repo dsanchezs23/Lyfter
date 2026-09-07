@@ -1,0 +1,7 @@
+@if (auth.isLoggedIn()){
+<span>Hi {{auth.session()?.name }}</span>
+<a routerLink="/cart">Cart ({{ cart.itemCount() }})</a>
+<button (click)="auth.logout()">Log out</button>
+} @else{
+<a routerLink="/login">Log in </a>
+}

@@ -1,3 +1,10 @@
 /js/requests/axios/package-lock.json
 /js/requests/axios/package.json
 /js/requests/axios/node_modules
+/frontend_petStore_angular/.angular/
+/frontend_petStore_angular/dist/
+/frontend_petStore_angular/tmp/
+/frontend_petStore_angular/out-tsc/
+/frontend_petStore_angular/bazel-out/
+/frontend_petStore_angular/coverage/
+/frontend_petStore_angular/.vscode/
