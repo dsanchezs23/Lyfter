@@ -1,6 +1,6 @@
 import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { UserService } from './user';
-import { LoginRequest, RegisterRequest, Role, Session } from '../models/user.model/user.model.ts';
+import { LoginRequest, RegisterRequest, Role, Session } from '../models/user.model';
 import { Observable, filter, tap } from 'rxjs';
 
 const STORAGE_KEY = 'petstore_session';

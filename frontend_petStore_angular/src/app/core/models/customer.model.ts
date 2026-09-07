@@ -1,4 +1,4 @@
-import { UserModel } from "../user.model/user.model.ts";
+import { UserModel } from './user.model';
 
 export interface CustomerModel extends UserModel {
   shippingAddress: string;

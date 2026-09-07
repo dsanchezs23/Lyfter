@@ -1,4 +1,4 @@
-import { CartItemModel } from "../cart-item.model/cart-item.model.ts.js";
+import { CartItemModel } from './cart-item.model';
 
 export interface CartModel {
   userId: string;

@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ProductModel } from '../models/product.models/product.model';
+import { ProductModel } from '../models/product.model';
 import { HttpService } from './http';
 
 @Injectable({providedIn: 'root',})
@@ -23,6 +23,7 @@ export class ProductService {
         return this.http.request(`product/${id}`, 'put', product);
     }
 
+    // NOTE: backend_petStore has no DELETE /product/{id} yet — this will 404 until that route exists.
     delete(id: string): Observable<void> {
         return this.http.request(`product/${id}`, 'delete');
     }

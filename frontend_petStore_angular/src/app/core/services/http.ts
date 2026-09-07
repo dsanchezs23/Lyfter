@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root', })
 export class HttpService {
     private http = inject(HttpClient);
-    private baseUrl = `${environment.apiUrl}/cart-item`;
+    private baseUrl = environment.apiUrl;
 
     request(path: string, method: string, body?: any): Observable<any> {
         const url = `${this.baseUrl}/${path}`;

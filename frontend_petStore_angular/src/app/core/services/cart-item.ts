@@ -1,32 +1,32 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpService } from './http';
 import { Observable } from 'rxjs';
-import { CartItemModel } from '../models/cart-item.model/cart-item.model.ts';
+import { CartItemModel } from '../models/cart-item.model';
 
 @Injectable({ providedIn: 'root', })
-export class CartItemService {  
+export class CartItemService {
     private http = inject(HttpService);
 
-    getAll(): Observable<CartItemModel[]>  {
-        return this.http.request('cart-item', 'get');
+    // NOTE: the backend route is /cartItem (camelCase), not /cart-item — Spring's @RequestMapping
+    // is case-sensitive, so this path has to match exactly.
+    getAll(): Observable<CartItemModel[]> {
+        return this.http.request('cartItem', 'get');
     }
 
-    getById(id: string): Observable<CartItemModel>  {
-        return this.http.request(`cart-item/${id}`, 'get');
+    getById(id: string): Observable<CartItemModel> {
+        return this.http.request(`cartItem/${id}`, 'get');
     }
 
-    create(cartItem: any): Observable<CartItemModel>  {
-        return this.http.request('cart-item', 'post', cartItem);
+    create(cartItem: CartItemModel): Observable<CartItemModel> {
+        return this.http.request('cartItem', 'post', cartItem);
     }
 
-    update(id: string, cartItem: any): Observable<CartItemModel>  {
-        return this.http.request(`cart-item/${id}`, 'put', cartItem);
+    // NOTE: backend_petStore has no PUT/DELETE for cartItem yet — these will 404 until those routes exist.
+    update(id: string, cartItem: CartItemModel): Observable<CartItemModel> {
+        return this.http.request(`cartItem/${id}`, 'put', cartItem);
     }
 
-    delete(id: string): Observable<void>  {
-        return this.http.request(`cart-item/${id}`, 'delete');
+    delete(id: string): Observable<void> {
+        return this.http.request(`cartItem/${id}`, 'delete');
     }
-
-    
-    
 }

@@ -1,12 +1,16 @@
 import { TestBed } from '@angular/core/testing';
-import { CartItem } from './cart-item';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { CartItemService } from './cart-item';
 
-describe('CartItem', () => {
-  let service: CartItem;
+describe('CartItemService', () => {
+  let service: CartItemService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(CartItem);
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(CartItemService);
   });
 
   it('should be created', () => {
